@@ -1,0 +1,162 @@
+1. 
+Develop RESTful web service for managing job postings . Recruiter should be able to post new job, update job details & delete postings. 
+Entity JobPosting can have attributes like Job title, company name, location, description, requirements, salary, and posting date.
+
+Endpoints:
+1.	Posting new Job:
+•	Endpoint: POST /jobPostings
+•	Request: JSON payload containing job details.
+•	Response: Confirmation of the created job posting.
+
+2.	Update Job Posting:
+•	Endpoint: PUT /jobPostings/{jobId}
+•	Request: Update an existing job posting by providing its unique identifier and the updated information.
+•	Response: Confirmation of the updated job posting.
+
+3.	Delete Job Posting:
+•	Endpoint: DELETE /jobPostings/{jobId}
+•	Request:Delete a job posting by providing its unique identifier.
+•	Response:Confirmation of the deleted job posting.
+
+4.	Get all Job Postings:
+•	Endpoint: GET /jobPostings
+•	Request: Retrieve a list of all available job postings.
+•	Response: JSON array containing job details
+Notes:
+•	Response codes should be as per REST guidelines.
+•	Error handling in case of failures.
+
+
+
+2. 
+
+Develop RESTful services for managing hotel room reservation for a hotel. Users should be able to reserve hotel room, view all available rooms, cancel reservation.
+
+Entities (with attributes):
+•	Room:Room ID, room number, type (single, double, suite), price, availability.
+•	Reservation:Reservation ID, guest name, check-in date, check-out date, room ID, total price.
+
+Endpoints:
+1.	Create Reservation:
+•	Endpoint: POST /reservations
+•	Request:JSON payload containing reservation details (guest name, check-in date, check-out date, room ID).
+•	Response: Confirmation of the created reservation.
+
+2.	Get Available rooms:
+•	Endpoint: GET /rooms?available=yes
+•	Request: Get all available rooms.
+•	Response: Return the details of available rooms in JSON format.
+
+3.	Cancel Reservation:
+•	Endpoint: DELETE /reservations/{reservationId}
+•	RequestCancel a reservation by providing its unique identifier.
+•	Response: Confirmation of the canceled reservation.
+Notes:
+•	Response codes should be as per REST guidelines.
+•	Error handling in case of failures.
+•	There should not be conflicting reservations, for example – more than one reservation for same room on 
+
+
+3. 
+Description:
+Develop RESTful services for a Recipe Sharing Platform where a user can share his recipe, browse existing recipes, update &delete recipes.
+Entity Recipe can have attributes like Recipe ID, title, description, ingredients, instructions, difficulty level, cuisine type, author (user ID), creation date.
+
+Endpoints:
+1.	Get Recipe by ID:
+•	Endpoint: GET /recipes/{recipeId}
+•	Request: Retrieve details of a specific recipe by providing its unique identifier.
+•	Response: JSON representation of the recipe.
+2.	Create Recipe:
+•	Endpoint: POST /recipes
+•	Request: JSON payload containing recipe details (title, description, ingredients, instructions, difficulty level, cuisine type).
+•	Response: Confirmation of the created recipe.
+3.	Update Recipe:
+•	Endpoint: PUT /recipes/{recipeId}
+•	Request: Update an existing recipe by providing its unique identifier and the updated information.
+•	Response: Confirmation of the updated recipe.
+4.	Delete Recipe:
+•	Endpoint: DELETE /recipes/{recipeId}
+•	Request: Delete a recipe by providing its unique identifier.
+•	Response: Confirmation of the deleted recipe.
+
+Notes:
+•	Response codes should be as per REST guidelines.
+•	Error handling in case of failures.
+
+
+4. Write a Spring Boot REST application which will provide following CRUD operations for 
+“Vehicle” and “User” resource running in Automobile Company. 
+1) Add new Vehicle. 
+2) Fetch all Vehicle for given User. (need to provide User name) 
+3) Delete vehicle records for given User. (need to provide User name) 
+ 
+Vehicle has the following attributes:  
+1) Id (unique identifier for each Projects, auto generated, starts from 1) 
+2) Vname (Cannot be Blank, Example: Splendor, Amaze, Pulsar, etc.) 
+3) Company (Enum, Example: Hero, Honda, Bajaj, etc.) 
+4) Vnumber (Cannot be Blank, Example: MH09AB1111, MH10CD2222, MHEF3333, etc.) 
+5) Vtype (Cannot be Blank, Example: bike, sedan, cruiser, etc.) 
+6) Uid (User ID, FK) 
+ 
+User has the following attributes: (Enter Sample Data in Database) 
+1) Uid (unique identifier for each User) 
+2) Uname (Cannot be Blank) 
+3) Email (Cannot be Blank) 
+4) Password (Cannot be blank, min 6 characters) 
+5) City (Cannot be Blank) 
+6) Contact_No (Cannot be blank, min 10 digit) 
+ 
+• Use MySQL Relational Database to save resource. 
+• Create Payload will have fields like – Vname, Company, Vnumber, Vtype, Uid 
+• “Id (auto generated)” will be populated by the Service. 
+• There should be Validation on Create Payload. 
+For example:  
+1) Vname, Vtype should not be blank. 
+2) Vnumber should not be blank and length must be 10 
+3) If User does not exist then Vehicle must not be registered under that user (display 
+relevant message). 
+4) None of the fields in Vehicle table are Nullable. 
+• Rest URL should be named as per REST best practices. 
+• Response codes should be as per REST guidelines 
+(201 for resource creation, 404 for not found, 200 for ok) 
+• Error handling in case of failures. (Optional : Global Exception Handling) 
+Note:- You have to test all API's on Postman / Swagger
+
+
+5.  Write a Spring Boot REST application which will provide following CRUD operations for 
+“Student” and “Course” resource offered by Educational Institute. 
+1. Add new Course 
+2. Update Course Details (Start Date, End Date & Fee can be updated) 
+3. Fetch all courses matched by given Course Name 
+4. Fetch all students for given Course Name 
+ 
+Course has the following attributes:  
+1. ID (unique identifier for each Course, auto generated, starts from 1) 
+2. Name (Cannot be Blank, Example : JAVA01, JAVA02, WEBJAVA01, WEBJAVA02) 
+3. Category (Enum, Example: JAVA-BEGINER, JAVA-ADVANCED) 
+4. Start Date (Cannot be Blank) 
+5. End Date (Cannot be Blank) 
+6. Fee (Cannot be Blank) 
+7. Grade to Pass (Cannot be Blank) 
+ 
+Student has the following attributes: (Enter Sample data in Database) 
+1. Sid (unique identifier for each Student) 
+2. Sname (Cannot be Blank) 
+3. Email (Cannot be Blank) 
+4. Password (Cannot be Blank) 
+5. Cid (Course ID, FK) 
+ 
+• Use MySQL Relational Database to save resource. 
+• Create payload will have fields like – Name, Category, Start Date, End Date, Fee 
+• “ID (auto generated) & Grade to Pass” will be populated by the service layer. 
+• There should be Validation on Create & Update Payload. 
+For example:  
+1) End Date cannot be before Start Date. 
+2) Name should not be blank. 
+3) None of the fields in Course table is Nullable. 
+• Rest URL should be named as per REST best practices. 
+• Response codes should be as per REST guidelines 
+(201 for resource creation, 404 for not found, 200 for ok) 
+• Error handling in case of failures. (Optional : Global Exceptional Handling) 
+Note:- You have to test all API's on Postman/Swagger 
